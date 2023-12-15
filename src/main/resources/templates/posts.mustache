@@ -4,16 +4,27 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <form method="post">
-        <input type="text" name="text" placeholder="Enter text">
-        <input type="text" name="tag" placeholder="Enter tag">
-        <button type="submit">Add</button>
-    </form>
-    {{#posts}}
-        <div>
-            <p>Text: {{text}}</p>
-            <p>Tag: {{tag}}</p>
-            <p>Id: {{id}}</p>
-        </div>
-    {{/posts}}
+    <div class="addForm">
+        <b>Add new post:</b>
+        <form method="post" action="/posts">
+            <input type="text" name="text" placeholder="Enter text">
+            <input type="text" name="tag" placeholder="Enter tag">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <hr>
+    <div>
+        <b>Posts list:</b>
+        <form method="post" action="/filter">
+            <input type="text" name="filter" placeholder="Enter tag to filter">
+            <button type="submit">Filter by</button>
+        </form>
+        {{#posts}}
+            <div>
+                <p>Text: {{text}}</p>
+                <p>Tag: {{tag}}</p>
+                <p>Id: {{id}}</p>
+            </div>
+        {{/posts}}
+    </div>
 </body>
