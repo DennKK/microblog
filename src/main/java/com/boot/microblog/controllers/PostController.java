@@ -31,4 +31,17 @@ public class PostController {
         model.put("posts", posts);
         return "posts";
     }
+
+    @PostMapping("/filter")
+    public String filterPosts(@RequestParam String filter, Map<String, Object> model) {
+        Iterable<PostEntity> posts;
+        if (filter != null && !filter.isEmpty()) {
+            posts = postRepo.findByTag(filter);
+        } else {
+            posts = postRepo.findAll();
+        }
+
+        model.put("posts", posts);
+        return "posts";
+    }
 }
