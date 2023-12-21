@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Posts</title>
+</head>
+<body>
+<div>
+    <b>Posts list:</b>
+    <tr th:if="${allPosts.empty}">
+        <td colspan="2"> No posts for now</td>
+    </tr>
+    <tr th:each="post : ${allPosts}">
+        <td><span th:text="${post.text}">Text</span></td>
+        <td><span th:text="${post.tag}">Tag</span></td>
+        <td><span th:text="${post.id}">Id</span></td>
+    </tr>
+</div>
+</body>
+</html>
