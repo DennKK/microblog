@@ -16,32 +16,33 @@ public class PostController {
     PostRepo postRepo;
 
     @GetMapping("/posts")
-    public String showPosts(Model model) {
+    public String showForm(Model model) {
+        model.addAttribute("newPost", new PostEntity());
         Iterable<PostEntity> allPosts = postRepo.findAll();
         model.addAttribute("allPosts", allPosts);
         return "posts";
     }
 
     @PostMapping("/posts")
-    public String addPost(@RequestParam String text, @RequestParam String tag, Model model) {
-        PostEntity post = new PostEntity(text, tag);
+    public String addPost(@ModelAttribute PostEntity post, Model model) {
         postRepo.save(post);
-
-        Iterable<PostEntity> posts = postRepo.findAll();
-        model.addAttribute("posts", posts);
+        model.addAttribute("newPost", new PostEntity());
+        Iterable<PostEntity> allPosts = postRepo.findAll();
+        model.addAttribute("allPosts", allPosts);
         return "posts";
     }
 
     @PostMapping("/filter")
-    public String filterPosts(@RequestParam String filter, Model model) {
-        Iterable<PostEntity> posts;
-        if (filter != null && !filter.isEmpty()) {
-            posts = postRepo.findByTag(filter);
+    public String filterPosts(@RequestParam String tag, Model model) {
+        Iterable<PostEntity> allPosts;
+        if (tag != null && !tag.isEmpty()) {
+            allPosts = postRepo.findByTag(tag);
         } else {
-            posts = postRepo.findAll();
+            allPosts = postRepo.findAll();
         }
 
-        model.addAttribute("posts", posts);
+        model.addAttribute("newPost", new PostEntity());
+        model.addAttribute("allPosts", allPosts);
         return "posts";
     }
 }
