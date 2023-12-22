@@ -4,15 +4,31 @@
     <title>Posts</title>
 </head>
 <body>
+<h3>Create new Post</h3>
+<form action="#" th:action="@{/posts}" th:object="${newPost}" method="post">
+    <p>Text: <input type="text" th:field="*{text}"/></p>
+    <p>Tag: <input type="text" th:field="*{tag}"/></p>
+    <p><input type="submit" value="Add"/> <input type="reset" value="Reset"/></p>
+</form>
+<hr>
+<h3>Enter the tag by which you want to filter posts</h3>
+<form action="#" th:action="@{/filter}" method="post">
+    <p>Tag: <input type="text" name="tag"/></p>
+    <p><input type="submit" value="Filter"/> <input type="reset" value="Reset"/></p>
+</form>
+<hr>
 <div>
-    <b>Posts list:</b>
+    <h3>Posts</h3>
     <tr th:if="${allPosts.empty}">
         <td colspan="2"> No posts for now</td>
     </tr>
-    <tr th:each="post : ${allPosts}">
-        <td><span th:text="${post.text}">Text</span></td>
-        <td><span th:text="${post.tag}">Tag</span></td>
-        <td><span th:text="${post.id}">Id</span></td>
+    <tr th:each="postObject : ${allPosts}">
+        <div>
+            <td><span th:text="${postObject.text}">Text</span></td>
+            <td><span th:text="${postObject.tag}">Tag</span></td>
+            <td><span th:text="${postObject.id}">Id</span></td>
+        </div>
+        <br>
     </tr>
 </div>
 </body>
