@@ -15,7 +15,6 @@ import lombok.Setter;
 @Getter
 @Entity
 public class PostEntity {
-
     public PostEntity(String text, String tag) {
         this.text = text;
         this.tag = tag;
