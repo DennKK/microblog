@@ -1,11 +1,17 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Main Page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<p>Welcome on my website</p>
-<a th:href="@{/posts}">Page with posts</a>
+<div><p>Welcome on my website</p></div>
+<div><p th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</p></div>
+<div><a th:href="@{/posts}">Page with posts</a></div>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
 </body>
 </html>
