@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Reg Page</title>
+</head>
+<body>
+<div th:if="${message}" th:text="${message}">
+</div>
+<p>Create new user</p>
+<form th:action="@{/register}" method="post">
+    <div><label> User Name : <input type="text" name="username"/></label></div>
+    <div><label> Password: <input type="password" name="password"/></label></div>
+    <div><input type="submit" value="Sign up"/></div>
+</form>
+</body>
+</html>
