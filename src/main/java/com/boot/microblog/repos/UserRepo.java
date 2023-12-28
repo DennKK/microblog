@@ -1,4 +1,8 @@
 package com.boot.microblog.repos;
 
-public interface UserRepo {
+import com.boot.microblog.domain.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepo extends JpaRepository<UserEntity, Long> {
+    UserEntity findByName(String username);
 }
