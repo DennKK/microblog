@@ -28,7 +28,7 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String name;
+    private String username;
     private String password;
     private boolean active;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
