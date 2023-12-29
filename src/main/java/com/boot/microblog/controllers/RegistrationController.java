@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @Controller
 public class RegistrationController {
@@ -18,14 +19,14 @@ public class RegistrationController {
     UserRepo userRepo;
 
     @GetMapping("/register")
-    public String registration(Model model) {
+    public String registration() {
         return "registration";
     }
 
     @PostMapping("/register")
     public String addUser(@ModelAttribute UserEntity user, Model model) {
-        UserEntity userFromDb = userRepo.findByName(user.getName());
-        if (userFromDb != null) {
+        Optional<UserEntity> userFromDb = userRepo.findByUsername(user.getUsername());
+        if (userFromDb.isPresent()) {
             model.addAttribute("message", "User already exists!");
             return "registration";
         }
