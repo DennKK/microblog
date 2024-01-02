@@ -2,7 +2,6 @@ package com.boot.microblog.controllers;
 
 import com.boot.microblog.domain.PostEntity;
 import com.boot.microblog.repos.PostRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PostController {
-    @Autowired
-    PostRepo postRepo;
+    private final PostRepo postRepo;
+
+    public PostController(PostRepo postRepo) {
+        this.postRepo = postRepo;
+    }
 
     @GetMapping("/posts")
     public String showForm(Model model) {
