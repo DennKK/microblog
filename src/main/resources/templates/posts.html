@@ -4,6 +4,8 @@
     <title>Posts</title>
 </head>
 <body>
+<h1>It's a page with posts!</h1>
+<hr>
 <h3>Create new Post</h3>
 <form action="#" th:action="@{/posts}" th:object="${newPost}" method="post">
     <p>Text: <input type="text" th:field="*{text}"/></p>
