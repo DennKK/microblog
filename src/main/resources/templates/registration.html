@@ -6,7 +6,7 @@
 <body>
 <div th:if="${message}" th:text="${message}">
 </div>
-<p>Create new user</p>
+<h1>Register or <a th:href="@{/login}">login</a>.</h1>
 <form th:action="@{/register}" method="post">
     <div><label> User Name : <input type="text" name="username"/></label></div>
     <div><label> Password: <input type="password" name="password"/></label></div>
