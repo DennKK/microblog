@@ -5,10 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<div><p>Welcome on my website</p></div>
+<div><h1>Welcome on my website!</h1></div>
 <div><p th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</p></div>
 <div><a th:href="@{/posts}">Page with posts</a></div>
 <div>
+    <p>Login <a th:href="@{/login}">here</a> or register <a th:href="@{/register}">here</a>.</p>
+</div>
+<div sec:authorize="isAuthenticated()">
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>
