@@ -1,11 +1,12 @@
 package com.boot.microblog.controllers;
 
 import com.boot.microblog.domain.PostEntity;
+import com.boot.microblog.domain.UserEntity;
 import com.boot.microblog.repos.PostRepo;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,8 +27,14 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public String addPost(@ModelAttribute PostEntity post, Model model) {
-        postRepo.save(post);
+    public String addPost(
+            @AuthenticationPrincipal UserEntity author,
+            @RequestParam String text,
+            @RequestParam String tag,
+            Model model
+    ) {
+        PostEntity newPost = new PostEntity(text, tag, author);
+        postRepo.save(newPost);
         model.addAttribute("newPost", new PostEntity());
         Iterable<PostEntity> allPosts = postRepo.findAll();
         model.addAttribute("allPosts", allPosts);
