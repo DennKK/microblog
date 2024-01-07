@@ -8,8 +8,8 @@
 <hr>
 <h3>Create new Post</h3>
 <form action="#" th:action="@{/posts}" th:object="${newPost}" method="post">
-    <p>Text: <input type="text" th:field="*{text}"/></p>
-    <p>Tag: <input type="text" th:field="*{tag}"/></p>
+    <p>Text: <input type="text" name="text"/></p>
+    <p>Tag: <input type="text" name="tag"/></p>
     <p><input type="submit" value="Add"/> <input type="reset" value="Reset"/></p>
 </form>
 <hr>
@@ -29,6 +29,7 @@
             <td><span th:text="${postObject.text}">Text</span></td>
             <td><span th:text="${postObject.tag}">Tag</span></td>
             <td><span th:text="${postObject.id}">Id</span></td>
+            <td><span th:text="${postObject.authorName}">Author</span></td>
         </div>
         <br>
     </tr>
