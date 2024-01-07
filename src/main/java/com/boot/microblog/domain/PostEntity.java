@@ -1,6 +1,7 @@
 package com.boot.microblog.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,7 +23,17 @@ public class PostEntity {
     private Long id;
     private String text;
     private String tag;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
     private UserEntity author;
+
+    public PostEntity(String text, String tag, UserEntity author) {
+        this.text = text;
+        this.tag = tag;
+        this.author = author;
+    }
+
+    public String getAuthorName() {
+        return author != null ? author.getUsername() : "<none>";
+    }
 }
