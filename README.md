@@ -5,7 +5,7 @@ Microblog is a Java-based web application created for educational purposes. This
 ## Technologies Used
 
 - Java
-- Spring
+- Spring Framework (Spring boot, MVC, Security)
 - Maven
 - PostgreSQL
 - Thymeleaf
