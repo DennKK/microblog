@@ -19,9 +19,13 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-    public String showForm(Model model) {
-        model.addAttribute("newPost", new PostEntity());
-        Iterable<PostEntity> allPosts = postRepo.findAll();
+    public String showForm(@RequestParam(required = false) String tag, Model model) {
+        Iterable<PostEntity> allPosts;
+        if (tag != null && !tag.isEmpty()) {
+            allPosts = postRepo.findByTag(tag);
+        } else {
+            allPosts = postRepo.findAll();
+        }
         model.addAttribute("allPosts", allPosts);
         return "posts";
     }
@@ -37,20 +41,6 @@ public class PostController {
         postRepo.save(newPost);
         model.addAttribute("newPost", new PostEntity());
         Iterable<PostEntity> allPosts = postRepo.findAll();
-        model.addAttribute("allPosts", allPosts);
-        return "posts";
-    }
-
-    @PostMapping("/filter")
-    public String filterPosts(@RequestParam String tag, Model model) {
-        Iterable<PostEntity> allPosts;
-        if (tag != null && !tag.isEmpty()) {
-            allPosts = postRepo.findByTag(tag);
-        } else {
-            allPosts = postRepo.findAll();
-        }
-
-        model.addAttribute("newPost", new PostEntity());
         model.addAttribute("allPosts", allPosts);
         return "posts";
     }
