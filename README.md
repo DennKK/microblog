@@ -4,12 +4,11 @@ Microblog is a Java-based web application created for educational purposes. This
 
 ## Technologies Used
 
-- [Java ☕](https://www.java.com/)
-- [Spring Boot 🍃](https://spring.io/projects/spring-boot)
-- [Hibernate 🚀](https://hibernate.org/)
-- [Lombok 🛠️](https://projectlombok.org/)
-- [Thymeleaf 🍀](https://www.thymeleaf.org/)
-- [Spring Security 🔒](https://spring.io/projects/spring-security)
+- Java
+- Spring
+- Maven
+- PostgreSQL
+- Thymeleaf
   
 ## Contribution Guidelines
 
