@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Reg Page</title>
+    <meta charset="UTF-8"/>
+    <title>Register Page</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-<div th:if="${message}" th:text="${message}">
+<div th:if="${message}" class="success-message" th:text="${message}"></div>
+<div>
+    <h1>Register or <a th:href="@{/login}">login</a>.</h1>
+    <form th:action="@{/register}" method="post">
+        <label>User Name: <input type="text" name="username" required/></label>
+        <label>Password: <input type="password" name="password" required/></label>
+        <input type="submit" value="Sign up"/>
+    </form>
 </div>
-<h1>Register or <a th:href="@{/login}">login</a>.</h1>
-<form th:action="@{/register}" method="post">
-    <div><label> User Name : <input type="text" name="username"/></label></div>
-    <div><label> Password: <input type="password" name="password"/></label></div>
-    <div><input type="submit" value="Sign up"/></div>
-</form>
 </body>
 </html>

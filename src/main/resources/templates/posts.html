@@ -2,37 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Posts</title>
+    <link rel="stylesheet" href="/css/posts.css">
 </head>
 <body>
-<h1>It's a page with posts!</h1>
-<hr>
-<h3>Create new Post</h3>
-<form action="#" th:action="@{/posts}" th:object="${newPost}" method="post">
-    <p>Text: <input type="text" name="text"/></p>
-    <p>Tag: <input type="text" name="tag"/></p>
-    <p><input type="submit" value="Add"/> <input type="reset" value="Reset"/></p>
-</form>
-<hr>
-<h3>Enter the tag by which you want to filter posts</h3>
-<form action="#" th:action="@{/filter}" method="post">
-    <p>Tag: <input type="text" name="tag"/></p>
-    <p><input type="submit" value="Filter"/> <input type="reset" value="Reset"/></p>
-</form>
-<hr>
-<div>
+<div id="left-container">
+    <h1>It's a page with posts!</h1>
+    <hr>
+    <h3>Create new Post</h3>
+    <form action="#" th:action="@{/posts}" th:object="${newPost}" method="post">
+        <p>Text: <input type="text" name="text"/></p>
+        <p>Tag: <input type="text" name="tag"/></p>
+        <p><input type="submit" value="Add"/> <input type="reset" value="Reset"/></p>
+    </form>
+    <hr>
+    <h3>Enter the tag by which you want to filter posts</h3>
+    <form action="#" th:action="@{/posts}" method="get">
+        <p>Tag: <input type="text" name="tag"/></p>
+        <p><input type="submit" value="Filter"/> <input type="reset" value="Reset"/></p>
+    </form>
+    <hr>
+    <a id="home-link" th:href="@{/}">Back to Home</a>
+</div>
+
+<div id="right-container">
     <h3>Posts</h3>
-    <tr th:if="${allPosts.empty}">
-        <td colspan="2"> No posts for now</td>
-    </tr>
-    <tr th:each="postObject : ${allPosts}">
-        <div>
+    <table th:if="${not allPosts.empty}">
+        <tr>
+            <th>Text</th>
+            <th>Tag</th>
+            <th>ID</th>
+            <th>Author</th>
+        </tr>
+        <tr th:each="postObject : ${allPosts}">
             <td><span th:text="${postObject.text}">Text</span></td>
             <td><span th:text="${postObject.tag}">Tag</span></td>
             <td><span th:text="${postObject.id}">Id</span></td>
             <td><span th:text="${postObject.authorName}">Author</span></td>
-        </div>
-        <br>
-    </tr>
+        </tr>
+    </table>
+    <p th:if="${allPosts.empty}" style="color: #888;">No posts for now</p>
 </div>
 </body>
 </html>
