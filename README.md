@@ -8,7 +8,7 @@ Microblog is a Java-based web application created for educational purposes. This
 - [Spring Boot 🍃](https://spring.io/projects/spring-boot)
 - [Hibernate 🚀](https://hibernate.org/)
 - [Lombok 🛠️](https://projectlombok.org/)
-- [Thymeleaf 🍃](https://www.thymeleaf.org/)
+- [Thymeleaf 🍀](https://www.thymeleaf.org/)
 - [Spring Security 🔒](https://spring.io/projects/spring-security)
   
 ## Contribution Guidelines
