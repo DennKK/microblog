@@ -14,11 +14,11 @@ Microblog is a Java-based web application created for educational purposes. This
 
 If you're interested in contributing to the project, please adhere to these guidelines:
 
-1. **Fork and Clone**
-2. **Create a new Branch**
-3. **Make Changes**
-4. **Follow Coding Standards**
-5. **Make Pull Request**
+- Fork and Clone
+- Create a new Branch
+- Make Changes
+- Follow Coding Standards
+- Make Pull Request
    
 ## License
 
