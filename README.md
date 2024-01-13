@@ -14,21 +14,12 @@ Microblog is a Java-based web application created for educational purposes. This
 
 If you're interested in contributing to the project, please adhere to these guidelines:
 
-1. **Fork and Clone:**
-   - Fork the repository and clone it locally.
-
-2. **Create a Branch:**
-   - Create a new branch for your feature or bug fix.
-
-3. **Make Changes:**
-   - Implement your changes and ensure thorough testing.
-
-4. **Coding Standards:**
-   - Follow the project's coding standards to maintain consistency.
-
-5. **Pull Request:**
-   - Submit a pull request with a clear description of your changes.
-
+1. **Fork and Clone**
+2. **Create a new Branch**
+3. **Make Changes**
+4. **Follow Coding Standards**
+5. **Make Pull Request**
+   
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
